@@ -5,7 +5,6 @@ services:
     env: docker
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
-    plan: free
     region: oregon
     branch: main
     envVars:
@@ -17,7 +16,6 @@ services:
     name: scientific-calculator-frontend
     env: static
     staticPublishPath: ./frontend
-    plan: free
     branch: main
     routes:
       - type: rewrite
