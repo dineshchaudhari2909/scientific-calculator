@@ -1,5 +1,4 @@
 // Backend configuration
-// Set this to your deployed backend URL for production
-// After deploying on Render, replace the URL below with your actual backend service URL
-// e.g. https://scientific-calculator-backend.onrender.com
-window.BACKEND_URL = "https://scientific-calculator-backend.onrender.com";
+// Railway backend URL — update this after Railway deploys your backend
+// Your Railway URL will look like: https://scientific-calculator-backend-production.up.railway.app
+window.BACKEND_URL = "https://scientific-calculator-backend-production.up.railway.app";
