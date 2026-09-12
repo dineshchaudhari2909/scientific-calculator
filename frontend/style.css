@@ -1,0 +1,237 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    padding: 20px;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 400px;
+
+    background: #1a1a2e;
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    padding: 25px;
+}
+
+.display-container {
+    background: #16213e;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    text-align: right;
+}
+
+#display {
+    font-size: 36px;
+
+    color: #e94560;
+
+    font-weight: bold;
+
+    min-height: 45px;
+
+    word-break: break-all;
+
+    margin-bottom: 10px;
+}
+
+#expression {
+    font-size: 16px;
+
+    color: #a0a0a0;
+
+    min-height: 20px;
+
+    word-break: break-all;
+}
+
+.buttons {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 10px;
+}
+
+.btn {
+    padding: 15px 10px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    color: white;
+
+    font-family: inherit;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-number {
+    background: #0f3460;
+}
+
+.btn-number:hover {
+    background: #1a4a8a;
+}
+
+.btn-operator {
+    background: #e94560;
+}
+
+.btn-operator:hover {
+    background: #ff6b8a;
+}
+
+.btn-scientific {
+    background: #533483;
+
+    font-size: 14px;
+}
+
+.btn-scientific:hover {
+    background: #6b449a;
+}
+
+.btn-clear {
+    background: #e94560;
+}
+
+.btn-clear:hover {
+    background: #ff6b8a;
+}
+
+.btn-backspace {
+    background: #533483;
+}
+
+.btn-backspace:hover {
+    background: #6b449a;
+}
+
+.btn-equals {
+    background: #4ade80;
+
+    color: #1a1a2e;
+
+    grid-column: span 1;
+}
+
+.btn-equals:hover {
+    background: #6ae890;
+}
+
+#error {
+    color: #ff6b6b;
+
+    font-size: 14px;
+
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-weight: 500;
+}
+
+#loading {
+    color: #4ade80;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    margin-top: 10px;
+
+    font-weight: 500;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .calculator {
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+    #display {
+        font-size: 28px;
+    }
+
+    #expression {
+        font-size: 14px;
+    }
+
+    .buttons {
+        gap: 8px;
+    }
+
+    .btn {
+        padding: 12px 8px;
+
+        font-size: 14px;
+    }
+
+    .btn-scientific {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    #display {
+        font-size: 24px;
+    }
+
+    .btn {
+        padding: 10px 6px;
+
+        font-size: 12px;
+    }
+
+    .btn-scientific {
+        font-size: 10px;
+    }
+}

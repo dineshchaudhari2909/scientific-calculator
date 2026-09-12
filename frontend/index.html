@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Scientific Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="calculator">
+
+        <div class="display-container">
+            <div id="display">0</div>
+            <div id="expression"></div>
+        </div>
+
+        <div class="buttons">
+            <!-- Scientific functions row -->
+            <button class="btn btn-scientific" data-action="sin">sin</button>
+            <button class="btn btn-scientific" data-action="cos">cos</button>
+            <button class="btn btn-scientific" data-action="tan">tan</button>
+            <button class="btn btn-scientific" data-action="log">log</button>
+            <button class="btn btn-scientific" data-action="ln">ln</button>
+
+            <!-- Advanced functions row -->
+            <button class="btn btn-scientific" data-action="sqrt">√x</button>
+            <button class="btn btn-scientific" data-action="power">x^y</button>
+            <button class="btn btn-scientific" data-action="factorial">x!</button>
+            <button class="btn btn-scientific" data-action="gcd">gcd</button>
+            <button class="btn btn-scientific" data-action="lcm">lcm</button>
+
+            <!-- Number row 1 -->
+            <button class="btn btn-number" data-value="7">7</button>
+            <button class="btn btn-number" data-value="8">8</button>
+            <button class="btn btn-number" data-value="9">9</button>
+            <button class="btn btn-operator" data-value="/">÷</button>
+            <button class="btn btn-clear" data-action="clear">C</button>
+
+            <!-- Number row 2 -->
+            <button class="btn btn-number" data-value="4">4</button>
+            <button class="btn btn-number" data-value="5">5</button>
+            <button class="btn btn-number" data-value="6">6</button>
+            <button class="btn btn-operator" data-value="*">×</button>
+            <button class="btn btn-backspace" data-action="backspace">⌫</button>
+
+            <!-- Number row 3 -->
+            <button class="btn btn-number" data-value="1">1</button>
+            <button class="btn btn-number" data-value="2">2</button>
+            <button class="btn btn-number" data-value="3">3</button>
+            <button class="btn btn-operator" data-value="-">−</button>
+            <button class="btn btn-operator" data-value="%">%</button>
+
+            <!-- Number row 4 -->
+            <button class="btn btn-number" data-value="0">0</button>
+            <button class="btn btn-number" data-value=".">.</button>
+            <button class="btn btn-number" data-value="-">±</button>
+            <button class="btn btn-operator" data-value="+">+</button>
+            <button class="btn btn-equals" data-action="calculate">=</button>
+        </div>
+
+        <div id="error"></div>
+        <div id="loading" class="hidden">Calculating...</div>
+
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

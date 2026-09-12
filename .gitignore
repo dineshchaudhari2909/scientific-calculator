@@ -1,0 +1,19 @@
+# Compiled executables
+backend/calculator
+backend/calculator.exe
+*.exe
+*.out
+*.o
+
+# Build artifacts
+*.obj
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
