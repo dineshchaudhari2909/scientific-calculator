@@ -2,9 +2,10 @@ services:
   # Backend: C++ API server via Docker
   - type: web
     name: scientific-calculator-backend
-    env: docker
+    runtime: docker
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
+    plan: free
     region: oregon
     branch: main
     envVars:
@@ -14,7 +15,7 @@ services:
   # Frontend: Static HTML/CSS/JS site
   - type: web
     name: scientific-calculator-frontend
-    env: static
+    runtime: static
     staticPublishPath: ./frontend
     branch: main
     routes:
