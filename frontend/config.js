@@ -4,5 +4,5 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
     window.BACKEND_URL = "http://localhost:8080";
 } else {
     // Production: use the deployed backend URL
-    window.BACKEND_URL = "https://scientific-calculator-backend.onrender.com";
+    window.BACKEND_URL = "https://scientific-calculator-backend-9o2o.onrender.com";
 }
