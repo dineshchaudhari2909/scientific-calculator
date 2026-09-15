@@ -1,3 +1,8 @@
 // Backend configuration
-// Render backend URL:
-window.BACKEND_URL = "https://scientific-calculator-backend.onrender.com";
+// Automatically detect environment
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    window.BACKEND_URL = "http://localhost:8080";
+} else {
+    // Production: use the deployed backend URL
+    window.BACKEND_URL = "https://scientific-calculator-backend.onrender.com";
+}

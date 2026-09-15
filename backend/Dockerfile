@@ -9,8 +9,10 @@ COPY main.cpp .
 # Build for Linux (no Windows-specific libraries needed)
 RUN g++ -std=c++17 -O2 main.cpp arithmetic.cpp -o calculator
 
-ENV PORT=10000
+# Render will set PORT environment variable automatically
+# Our application reads it with std::getenv("PORT")
 
-EXPOSE 10000
+EXPOSE 8080
 
+# Run the calculator
 CMD ["./calculator"]

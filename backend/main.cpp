@@ -538,6 +538,8 @@ int main()
         port = 8080;
     }
 
+    cerr << "Starting server on port " << port << endl;
+
     socket_t serverSocket = socket(
         AF_INET,
         SOCK_STREAM,
@@ -569,7 +571,7 @@ int main()
             reinterpret_cast<sockaddr*>(&serverAddress),
             sizeof(serverAddress)) == SOCKET_ERROR)
     {
-        cerr << "Bind failed." << endl;
+        cerr << "Bind failed. Port " << port << " may be in use." << endl;
         closesocket(serverSocket);
         cleanupNetworking();
         return 1;
@@ -582,6 +584,8 @@ int main()
         cleanupNetworking();
         return 1;
     }
+
+    cerr << "Server successfully bound and listening" << endl;
 
     cout << "====================================" << endl;
     cout << " Scientific Calculator C++ Backend" << endl;
