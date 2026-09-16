@@ -19,7 +19,7 @@ services:
     branch: main
     envVars:
       - key: BACKEND_URL
-        value: https://scientific-calculator-backend.onrender.com
+        value: https://scientific-calculator-backend-9o2o.onrender.com
     routes:
       - type: rewrite
         source: /*
