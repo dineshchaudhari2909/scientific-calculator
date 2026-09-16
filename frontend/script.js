@@ -142,9 +142,28 @@ async function calculate() {
     try {
         let result;
 
-        // Integer operations go to C++ backend
-        if (isInteger(a) && isInteger(b) && ["+", "-", "*", "/", "%", "^", "gcd", "lcm"].includes(op)) {
-            const backendOp = op === "*" ? "*" : op === "×" ? "*" : op === "÷" ? "/" : op === "−" ? "-" : op;
+        // Division and modulo are always handled client-side for floating-point results
+        if (op === "/" || op === "÷" || op === "%") {
+            const numA = parseFloat(a);
+            const numB = parseFloat(b);
+
+            if (op === "/" || op === "÷") {
+                if (numB === 0) {
+                    throw new Error("Cannot divide by zero");
+                }
+                result = (numA / numB).toString();
+            } else {
+                // Proper floating-point modulo
+                if (numB === 0) {
+                    throw new Error("Cannot modulo by zero");
+                }
+                result = ((numA % numB) + numB) % numB; // Fix for negative numbers
+                result = result.toString();
+            }
+        }
+        // Integer operations go to C++ backend for arbitrary-precision
+        else if (isInteger(a) && isInteger(b) && ["+", "-", "*", "^", "gcd", "lcm"].includes(op)) {
+            const backendOp = op === "*" ? "*" : op === "×" ? "*" : op === "−" ? "-" : op;
             result = await sendToBackend(a, b, backendOp);
         } else {
             // Floating-point operations handled client-side
@@ -162,16 +181,6 @@ async function calculate() {
                 case "*":
                 case "×":
                     result = (numA * numB).toString();
-                    break;
-                case "/":
-                case "÷":
-                    if (numB === 0) {
-                        throw new Error("Cannot divide by zero");
-                    }
-                    result = (numA / numB).toString();
-                    break;
-                case "%":
-                    result = (numA % numB).toString();
                     break;
                 case "^":
                     result = Math.pow(numA, numB).toString();
@@ -273,6 +282,8 @@ document.querySelectorAll('.btn').forEach(button => {
                 } else {
                     handleOperator(value);
                 }
+            } else if (['+', '*', '/', '%'].includes(value)) {
+                handleOperator(value);
             } else {
                 handleNumber(value);
             }
@@ -286,6 +297,9 @@ document.querySelectorAll('.btn').forEach(button => {
                     break;
                 case 'calculate':
                     calculate();
+                    break;
+                case 'negate':
+                    handleNegation();
                     break;
                 default:
                     handleScientific(action);
